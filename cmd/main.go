@@ -5,6 +5,7 @@ import (
 
 	"github.com/alexvelfr/go-template/pkg/config"
 	"github.com/alexvelfr/go-template/server"
+	"github.com/spf13/viper"
 )
 
 func main() {
@@ -12,5 +13,5 @@ func main() {
 		log.Fatal(err)
 	}
 	app := server.NewApp()
-	app.Run()
+	app.Run(viper.GetString("port"))
 }
