@@ -13,5 +13,5 @@ func main() {
 		log.Fatal(err)
 	}
 	app := server.NewApp()
-	app.Run(viper.GetString("port"))
+	app.Run(viper.GetString("app.http_port"))
 }

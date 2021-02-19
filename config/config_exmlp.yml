@@ -1,2 +1,5 @@
-db: ""
-port: 8888
+app:
+  http_port: 8888
+  log:
+    dir: "logs"
+    file: "app.log"
