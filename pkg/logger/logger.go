@@ -2,15 +2,18 @@ package logger
 
 import (
 	"os"
+	"path"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 
-func init() {
+// InitLogger ...
+func InitLogger() {
 	logrus.SetFormatter(&logrus.JSONFormatter{})
 	os.Mkdir(viper.GetString("app.log.dir"), os.ModeAppend)
-	file, err := os.OpenFile(viper.GetString("app.log.file"), os.O_APPEND|os.O_RDWR|os.O_CREATE, 0755)
+	filepath := path.Join(viper.GetString("app.log.dir"), viper.GetString("app.log.file"))
+	file, err := os.OpenFile(filepath, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0755)
 	if err != nil {
 		panic(err)
 	}
