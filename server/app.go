@@ -2,6 +2,8 @@ package server
 
 import (
 	"context"
+	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -13,6 +15,10 @@ import (
 	apprepo "github.com/alexvelfr/go-template/app/repo/mock"
 	appusecase "github.com/alexvelfr/go-template/app/usecase"
 	"github.com/gin-gonic/gin"
+	"github.com/golang-migrate/migrate/v4"
+	"github.com/golang-migrate/migrate/v4/database/mysql"
+	_ "github.com/golang-migrate/migrate/v4/source/file" // required
+	"github.com/spf13/viper"
 )
 
 // App ...
@@ -66,4 +72,42 @@ func (a *App) Run(port string) error {
 	defer shutdown()
 
 	return a.httpServer.Shutdown(ctx)
+}
+
+func initDB() *sql.DB {
+	dbString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?%s",
+		viper.GetString("app.db.login"),
+		viper.GetString("app.db.pass"),
+		viper.GetString("app.db.host"),
+		viper.GetString("app.db.port"),
+		viper.GetString("app.db.name"),
+		viper.GetString("app.db.args"),
+	)
+	db, err := sql.Open(
+		"mysql",
+		dbString,
+	)
+	if err != nil {
+		panic(err)
+	}
+	runMigrations(db)
+	return db
+}
+
+func runMigrations(db *sql.DB) {
+	driver, err := mysql.WithInstance(db, &mysql.Config{})
+	if err != nil {
+		panic(err)
+	}
+	m, err := migrate.NewWithDatabaseInstance(
+		"file://migrations",
+		viper.GetString("app.db.name"),
+		driver)
+	if err != nil {
+		panic(err)
+	}
+	err = m.Up()
+	if err != nil && err != migrate.ErrNoChange {
+		panic(err)
+	}
 }
