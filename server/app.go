@@ -107,7 +107,7 @@ func runMigrations(db *sql.DB) {
 		panic(err)
 	}
 	err = m.Up()
-	if err != nil && err != migrate.ErrNoChange {
-		panic(err)
+	if err != nil && err != migrate.ErrNoChange && err != migrate.ErrNilVersion {
+		fmt.Println(err)
 	}
 }
