@@ -11,9 +11,9 @@ import (
 // InitLogger ...
 func InitLogger() {
 	logrus.SetFormatter(&logrus.JSONFormatter{})
-	os.Mkdir(viper.GetString("app.log.dir"), os.ModeAppend)
+	os.Mkdir(viper.GetString("app.log.dir"), 0755)
 	filepath := path.Join(viper.GetString("app.log.dir"), viper.GetString("app.log.file"))
-	file, err := os.OpenFile(filepath, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0755)
+	file, err := os.OpenFile(filepath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0755)
 	if err != nil {
 		panic(err)
 	}
