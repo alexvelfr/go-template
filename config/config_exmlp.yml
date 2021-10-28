@@ -1,4 +1,6 @@
 app:
+  socket_mode: false
+  socket_file: "app.sock"
   http_port: 8888
   log:
     dir: "logs"
