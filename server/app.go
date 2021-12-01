@@ -48,7 +48,7 @@ func (a *App) Run(port string) error {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 	router.Use(
-		gin.CustomRecovery(logger.RecoveryLog),
+		gin.RecoveryWithWriter(logger.LogWriter{}),
 	)
 
 	apphttp.RegisterHTTPEndpoints(router, a.appUC)

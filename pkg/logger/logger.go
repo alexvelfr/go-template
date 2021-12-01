@@ -2,10 +2,12 @@ package logger
 
 import (
 	"context"
+	"errors"
 
 	logstashclientmicro "github.com/alexvelfr/logstash-client-micro"
-	"github.com/gin-gonic/gin"
 )
+
+type LogWriter struct{}
 
 var logClient logstashclientmicro.Client
 
@@ -28,9 +30,7 @@ func LogError(reqID, action, file, data string, err error) {
 	})
 }
 
-func RecoveryLog(c *gin.Context, err interface{}) {
-	err2, ok := err.(error)
-	if ok {
-		LogError("", "RECOVERY", "", "", err2)
-	}
+func (l LogWriter) Write(p []byte) (int, error) {
+	LogError("", "PANIC", "", string(p), errors.New("PANIC"))
+	return len(p), nil
 }

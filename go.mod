@@ -3,7 +3,7 @@ module github.com/alexvelfr/go-template
 go 1.16
 
 require (
-	github.com/alexvelfr/logstash-client-micro v0.0.0-20211105143304-6fe160541573 // indirect
+	github.com/alexvelfr/logstash-client-micro v0.0.0-20211201151648-1a6346a4f81e
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gin-gonic/gin v1.7.1
 	github.com/go-playground/validator/v10 v10.6.1 // indirect
@@ -14,7 +14,7 @@ require (
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/pelletier/go-toml v1.9.1 // indirect
-	github.com/sirupsen/logrus v1.8.1
+	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/spf13/afero v1.6.0 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
