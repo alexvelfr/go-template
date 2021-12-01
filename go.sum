@@ -58,6 +58,8 @@ github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc h1:cAKDfWh5Vpd
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf h1:qet1QNfXsQxTZqLG4oE62mJzwPIB8+Tee4RNCL9ulrY=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=
+github.com/alexvelfr/logstash-client-micro v0.0.0-20211105143304-6fe160541573 h1:C/yv6/7Yfk7/uzeHWvolUpaJJMqrUpe1/qUnuASKBBk=
+github.com/alexvelfr/logstash-client-micro v0.0.0-20211105143304-6fe160541573/go.mod h1:JJflwsRhW5Mu7Q26ZqzQuZ+zR0SYKdvxnS3BrC+02Uw=
 github.com/apache/arrow/go/arrow v0.0.0-20200601151325-b2287a20f230 h1:5ultmol0yeX75oh1hY78uAFn3dupBQ/QUNxERCkiaUQ=
 github.com/apache/arrow/go/arrow v0.0.0-20200601151325-b2287a20f230/go.mod h1:QNYViu/X0HXDHw7m3KXzWSVXIbfUvJqBFe6Gj8/pYA0=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e h1:QEF07wC0T1rKkctt1RINW/+RMTVmiwxETico2l3gxJA=

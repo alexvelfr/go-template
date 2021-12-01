@@ -1,38 +1,36 @@
 package logger
 
 import (
-	"os"
-	"path"
+	"context"
 
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/viper"
+	logstashclientmicro "github.com/alexvelfr/logstash-client-micro"
+	"github.com/gin-gonic/gin"
 )
 
-var out *os.File
+var logClient logstashclientmicro.Client
 
 // InitLogger ...
-func InitLogger() {
-	logrus.SetFormatter(&logrus.JSONFormatter{})
-	os.Mkdir(viper.GetString("app.log.dir"), 0755)
-	filepath := path.Join(viper.GetString("app.log.dir"), viper.GetString("app.log.file"))
-	out, err := os.OpenFile(filepath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0755)
-	if err != nil {
-		panic(err)
-	}
-	logrus.SetOutput(out)
+func InitLogger(servceName, uri string, useInsecureSSL bool) {
+	logClient = logstashclientmicro.NewClient(servceName, uri, useInsecureSSL)
 }
 
 // LogError log it
-func LogError(action, file, data string, err error) {
-	logrus.WithFields(
-		logrus.Fields{
-			"action": action,
-			"file":   file,
-			"data":   data,
-		},
-	).Error(err)
+func LogError(reqID, action, file, data string, err error) {
+	if logClient == nil {
+		return
+	}
+	logClient.LogError(context.Background(), logstashclientmicro.Message{
+		XReqID: reqID,
+		Data:   data,
+		File:   file,
+		Action: action,
+		Error:  err,
+	})
 }
 
-func GetOutFile() *os.File {
-	return out
+func RecoveryLog(c *gin.Context, err interface{}) {
+	err2, ok := err.(error)
+	if ok {
+		LogError("", "RECOVERY", "", "", err2)
+	}
 }

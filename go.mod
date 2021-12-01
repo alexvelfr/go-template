@@ -3,6 +3,7 @@ module github.com/alexvelfr/go-template
 go 1.16
 
 require (
+	github.com/alexvelfr/logstash-client-micro v0.0.0-20211105143304-6fe160541573 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gin-gonic/gin v1.7.1
 	github.com/go-playground/validator/v10 v10.6.1 // indirect
