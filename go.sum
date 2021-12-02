@@ -106,6 +106,8 @@ github.com/alexvelfr/micro-logger v0.0.1 h1:CJyrW7GbKa6eTr+B7NJnj5NmRVJYoHbnCXfQ
 github.com/alexvelfr/micro-logger v0.0.1/go.mod h1:SYGOproB/FS40ayY6eGS1ftVTnL3TfIG5BG7frjvsE4=
 github.com/alexvelfr/micro-logger v0.0.2 h1:cbRw+pLusR81GimCxR67VeyclJMHzQeawIrLbkIbnvk=
 github.com/alexvelfr/micro-logger v0.0.2/go.mod h1:qZln7mNp/0j7qbWOzVhqxr9WdQVHPaQKLP/0T6FVLzE=
+github.com/alexvelfr/micro-logger v0.0.3 h1:9ycr7SrpzEynur6SOOeNlZ+jBOVOjP5RCI4cFBwqY2s=
+github.com/alexvelfr/micro-logger v0.0.3/go.mod h1:qZln7mNp/0j7qbWOzVhqxr9WdQVHPaQKLP/0T6FVLzE=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/apache/arrow/go/arrow v0.0.0-20210818145353-234c94e4ce64/go.mod h1:2qMFB56yOP3KzkB3PbYZ4AlUFg3a88F67TIx5lB/WwY=
 github.com/apache/arrow/go/arrow v0.0.0-20211013220434-5962184e7a30/go.mod h1:Q7yQnSMnLvcXlZ8RV+jwz/6y1rQTqbX6C82SndT52Zs=
