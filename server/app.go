@@ -15,7 +15,7 @@ import (
 	apphttp "github.com/alexvelfr/go-template/app/delivery/http"
 	apprepo "github.com/alexvelfr/go-template/app/repo/mock"
 	appusecase "github.com/alexvelfr/go-template/app/usecase"
-	"github.com/alexvelfr/go-template/pkg/logger"
+	micrologger "github.com/alexvelfr/micro-logger"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/mysql"
@@ -48,7 +48,7 @@ func (a *App) Run(port string) error {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 	router.Use(
-		gin.RecoveryWithWriter(logger.LogWriter{}),
+		gin.RecoveryWithWriter(micrologger.GetWriter()),
 	)
 
 	apphttp.RegisterHTTPEndpoints(router, a.appUC)
