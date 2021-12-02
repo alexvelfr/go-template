@@ -3,8 +3,8 @@ module github.com/alexvelfr/go-template
 go 1.17
 
 require (
-	github.com/alexvelfr/logstash-client-micro v0.0.2 // indirect
-	github.com/alexvelfr/micro-logger v0.0.0-20211202085152-08f42f2e77e6
+	github.com/alexvelfr/logstash-client-micro v0.0.3 // indirect
+	github.com/alexvelfr/micro-logger v0.0.2
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.7.7
