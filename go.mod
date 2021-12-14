@@ -3,16 +3,23 @@ module github.com/alexvelfr/go-template
 go 1.17
 
 require (
-	github.com/alexvelfr/logstash-client-micro v0.0.3 // indirect
 	github.com/alexvelfr/micro-logger v0.0.3
+	github.com/gin-gonic/gin v1.7.7
+	github.com/golang-migrate/migrate/v4 v4.15.1
+	github.com/spf13/viper v1.9.0
+	gorm.io/driver/mysql v1.2.1
+	gorm.io/gorm v1.22.4
+)
+
+require (
+	github.com/alexvelfr/logstash-client-micro v0.0.3 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.7.7
+	github.com/gin-gonic/contrib v0.0.0-20201101042839-6a891bf89f19 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
-	github.com/golang-migrate/migrate/v4 v4.15.1
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
@@ -31,7 +38,6 @@ require (
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/spf13/viper v1.9.0
 	github.com/subosito/gotenv v1.2.0 // indirect
 	github.com/ugorji/go/codec v1.2.6 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
@@ -41,6 +47,4 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/ini.v1 v1.66.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gorm.io/driver/mysql v1.2.1
-	gorm.io/gorm v1.22.4
 )

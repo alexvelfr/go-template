@@ -8,6 +8,9 @@ app:
     file: "app.log"
     logstash:
       url: ""
+  client: 
+    use: true
+    dir: "dist"
   db:
     login: ""
     pass: ""

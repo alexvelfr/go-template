@@ -16,6 +16,7 @@ import (
 	apprepo "github.com/alexvelfr/go-template/app/repo/mock"
 	appusecase "github.com/alexvelfr/go-template/app/usecase"
 	micrologger "github.com/alexvelfr/micro-logger"
+	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/mysql"
@@ -50,6 +51,9 @@ func (a *App) Run(port string) error {
 	router.Use(
 		gin.RecoveryWithWriter(micrologger.GetWriter()),
 	)
+	if viper.GetBool("app.client.use") {
+		router.Use(static.Serve("/", static.LocalFile(viper.GetString("app.client.dir"), true)))
+	}
 
 	apphttp.RegisterHTTPEndpoints(router, a.appUC)
 
